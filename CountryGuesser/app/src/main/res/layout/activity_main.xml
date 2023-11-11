@@ -25,10 +25,10 @@
             android:textStyle="bold"
             android:gravity="center"
             android:layout_weight="1"
-            android:text="Hint: 2/3" />
+            android:text="Hint: 2/5" />
 
         <TextView
-            android:id="@+id/scoreText"
+            android:id="@+id/attemptText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="20dp"
@@ -36,7 +36,7 @@
             android:textStyle="bold"
             android:padding="5dp"
             android:layout_weight="1"
-            android:text="Score: 1000" />
+            android:text="Attempt: 1/3" />
     </LinearLayout>
 
 
@@ -106,7 +106,6 @@
             android:textSize="20dp"
             android:textColor="@color/black"
             android:text="GET A HINT" />
-
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
