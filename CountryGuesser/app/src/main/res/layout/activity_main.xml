@@ -98,7 +98,7 @@
 
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/hintButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -107,7 +107,7 @@
             android:textColor="@color/black"
             android:text="GET A HINT" />
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/submitButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
