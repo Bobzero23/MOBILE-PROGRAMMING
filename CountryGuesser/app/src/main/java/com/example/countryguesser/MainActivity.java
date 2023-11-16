@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -128,8 +129,57 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startGame() {
+        /*CREATING A RANDOM OBJECT*/
         Random random = new Random();
 
+        /*GETTING A RANDOM COUNTRY FROM THE COUNTRIES LIST*/
+        currentCountry = countries.get(random.nextInt(countries.size()));
+
+        updateHintText();
+        hintsGiven = 0;
+
+        updateAttempts();
     }
+
+
+    private void updateHintText() {
+        List<String> hints =  countryHints.get(currentCountry);
+
+        if (hints != null && hints.size() > 0 && hintsGiven < maxHints) {
+            hintText.setText("Hint: " + (hintsGiven + 1) + "/" +  maxHints);
+            hintView.setText(hints.get(hintsGiven));
+        }else {
+            hintText.setText("No more hints");
+            hintView.setText("");
+        }
+    }
+
+    private void updateAttempts() {
+        attemptText.setText("Attempt: " + (maxAttempts - attemptsLeft + 1) + maxAttempts);
+        editText.setText("");
+    }
+
+    private void onGetHintClick(View view) {
+        if (hintsGiven < maxHints) {
+            hintsGiven++;
+            updateHintText();
+        }
+    }
+
+    private void onSubmitClick(View view) {
+        String userAnswer = editText.getText().toString().trim();
+
+        if (userAnswer.equalsIgnoreCase(currentCountry)) {
+            // TODO
+        }else {
+            attemptsLeft--;
+            if (attemptsLeft == 0) {
+                // TODO
+            }else {
+                updateAttempts();
+            }
+        }
+    }
+
 
 }

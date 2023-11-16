@@ -105,7 +105,8 @@
           android:backgroundTint="#e9c46a"
             android:textSize="20dp"
             android:textColor="@color/black"
-            android:text="GET A HINT" />
+            android:text="GET A HINT"
+            android:onClick="onGetHintClick"/>
         <Button
             android:id="@+id/submitButton"
             android:layout_width="match_parent"
@@ -114,7 +115,8 @@
             android:textColor="@color/black"
             android:backgroundTint="#6a994e"
             android:textSize="20dp"
-            android:text="SUBMIT THE ANSWER" />
+            android:text="SUBMIT THE ANSWER"
+            android:onClick="onSubmitClick"/>
     </LinearLayout>
 
 </LinearLayout>
