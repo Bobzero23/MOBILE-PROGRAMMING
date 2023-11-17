@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private int attemptsLeft = maxAttempts;
     private int maxHints = 5;
     private int hintsGiven = 0;
+    private int totalScore;
 
 
     @Override
@@ -58,46 +59,46 @@ public class MainActivity extends AppCompatActivity {
         countries = new ArrayList<>(Arrays.asList("Tanzania", "Canada", "USA", "Turkey", "Russia", "India", "UK", "France", "Kenya", "South Africa"));
 
         /*INITIALIZING THE LISTS OF HINTS*/
-        List<String> TzHints = new ArrayList<>(Arrays.asList("The country area is 974,303 kilometres", "This country is located in East africa",
-                "The country currency is Shilling", "The spoken language of this country is SWAHILI", "The capital city of this country is DODOMA"));
+        List<String> TzHints = new ArrayList<>(Arrays.asList("The country area is 974,303 kilometres", "This country is located in EAST AFRICA",
+                "The country currency is SHILLING", "The spoken language of this country is SWAHILI and ENGLISH", "The capital city of this country is DODOMA"));
 
 
-        List<String> CnHints = new ArrayList<>(Arrays.asList("The country area is 974,303 kilometres", "This country is located in East africa",
-                "The country currency is Shilling", "The spoken language of this country is SWAHILI", "The capital city of this country is DODOMA"));
+        List<String> CnHints = new ArrayList<>(Arrays.asList("The country area is  9,984,670 kilometres", "This country is located in NORTH AMERICA",
+                "The country currency is DOLLAR", "The spoken language of this country is ENGLISH and FRENCH", "The capital city of this country is OTTAWA"));
 
 
-        List<String> UsHints = new ArrayList<>(Arrays.asList("The country area is 974,303 kilometres", "This country is located in East africa",
-                "The country currency is Shilling", "The spoken language of this country is SWAHILI", "The capital city of this country is DODOMA"));
+        List<String> UsHints = new ArrayList<>(Arrays.asList("The country area is  9,631,418 kilometres", "This country is located in NORTH AMERICA",
+                "The country currency is DOLLAR", "The spoken language of this country is ENGLISH", "The capital city of this country is Washington, D.C"));
 
 
-        List<String> TrHints = new ArrayList<>(Arrays.asList("The country area is 974,303 kilometres", "This country is located in East africa",
-                "The country currency is Shilling", "The spoken language of this country is SWAHILI", "The capital city of this country is DODOMA"));
+        List<String> TrHints = new ArrayList<>(Arrays.asList("The country area is 783,356 kilometres", "This country is located in EUROPE and ASIA",
+                "The country currency is LIRA", "The spoken language of this country is TURKISH", "The capital city of this country is ANKARA"));
 
 
-        List<String> RsHints = new ArrayList<>(Arrays.asList("The country area is 974,303 kilometres", "This country is located in East africa",
-                "The country currency is Shilling", "The spoken language of this country is SWAHILI", "The capital city of this country is DODOMA"));
+        List<String> RsHints = new ArrayList<>(Arrays.asList("The country area is the largest in the world, approximately 17,098,242 square kilometers", "This country is located in EASTERN EUROPE AND NORTH ASIA",
+                "The country currency is RUBLE", "The spoken language of this country is RUSSIAN", "The capital city of this country is MOSCOW"));
 
 
-        List<String> InHints = new ArrayList<>(Arrays.asList("The country area is 974,303 kilometres", "This country is located in East africa",
-                "The country currency is Shilling", "The spoken language of this country is SWAHILI", "The capital city of this country is DODOMA"));
+        List<String> InHints = new ArrayList<>(Arrays.asList("The country area is 3,287,590 kilometres", "This country is located in SOUTH ASIA",
+                "The country currency is RUPEE", "The spoken language of this country is HINDI", "The capital city of this country is NEW DELHI"));
 
 
-        List<String> UkHints = new ArrayList<>(Arrays.asList("The country area is 974,303 kilometres", "This country is located in East africa",
-                "The country currency is Shilling", "The spoken language of this country is SWAHILI", "The capital city of this country is DODOMA"));
-
-
-
-        List<String> FrHints = new ArrayList<>(Arrays.asList("The country area is 974,303 kilometres", "This country is located in East africa",
-                "The country currency is Shilling", "The spoken language of this country is SWAHILI", "The capital city of this country is DODOMA"));
-
-
-        List<String> KyHints = new ArrayList<>(Arrays.asList("The country area is 974,303 kilometres", "This country is located in East africa",
-                "The country currency is Shilling", "The spoken language of this country is SWAHILI", "The capital city of this country is DODOMA"));
+        List<String> UkHints = new ArrayList<>(Arrays.asList("The country area is 243,610 kilometres", "This country is located in NORTH WESTERN EUROPE",
+                "The country currency is POUND STERLING", "The spoken language of this country is ENGLISH", "The capital city of this country is LONDON"));
 
 
 
-        List<String> SaHints = new ArrayList<>(Arrays.asList("The country area is 974,303 kilometres", "This country is located in East africa",
-                "The country currency is Shilling", "The spoken language of this country is SWAHILI", "The capital city of this country is DODOMA"));
+        List<String> FrHints = new ArrayList<>(Arrays.asList("The country area is 551,695 kilometres", "This country is located in WESTERN EUROPE",
+                "The country currency is EURO", "The spoken language of this country is FRENCH", "The capital city of this country is PARIS"));
+
+
+        List<String> KyHints = new ArrayList<>(Arrays.asList("The country area is 580,367 kilometres", "This country is located in EAST AFRICA",
+                "The country currency is SHILLING", "The spoken language of this country is SWAHILI and ENGLISH", "The capital city of this country is NAIROBI"));
+
+
+
+        List<String> SaHints = new ArrayList<>(Arrays.asList("The country area is 1,219,090 kilometres", "This country is located in SOUTHERN AFRICA",
+                "The country currency is RAND", "The spoken language of this country is AFRIKAANS, ENGLISH and ISIZULU", "The capital city of this country is PRETORIA, BLOEMFONTEIN, CAPETOWN"));
 
 
 
@@ -138,6 +139,8 @@ public class MainActivity extends AppCompatActivity {
         updateHintText();
         hintsGiven = 0;
 
+        totalScore = 1000;
+
         updateAttempts();
     }
 
@@ -155,26 +158,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateAttempts() {
-        attemptText.setText("Attempt: " + (maxAttempts - attemptsLeft + 1) + maxAttempts);
+        attemptText.setText("Attempt: " + (maxAttempts - attemptsLeft + 1) + "/" + maxAttempts);
         editText.setText("");
     }
 
-    private void onGetHintClick(View view) {
+    public void onGetHintClick(View view) {
         if (hintsGiven < maxHints) {
             hintsGiven++;
+            totalScore = totalScore - 200;
             updateHintText();
         }
     }
 
-    private void onSubmitClick(View view) {
+    public void onSubmitClick(View view) {
         String userAnswer = editText.getText().toString().trim();
 
         if (userAnswer.equalsIgnoreCase(currentCountry)) {
-            // TODO
+            hintView.setText("CONGRATULATIONS!! YOU ARE CORRECT. YOU SCORED " + totalScore + "POINTS");
         }else {
             attemptsLeft--;
             if (attemptsLeft == 0) {
-                // TODO
+                hintView.setText("YOU LOST");
             }else {
                 updateAttempts();
             }
