@@ -45,19 +45,19 @@ public class PickADiet extends AppCompatActivity {
 
     private void setupData() {
         /*adding the cell data to the list*/
-        PickADietList meal1 = new PickADietList("0", "1500CAL\n BREAKFAST(3 EGGS)\n LUNCH(CHICKEN BREAST)\n DINNER(BEEF)", R.drawable.meal);
+        PickADietList meal1 = new PickADietList("0", "500CAL\n BREAKFAST(3 EGGS)\n LUNCH(CHICKEN BREAST)\n DINNER(BEEF)", R.drawable.meal);
         pickADietLists.add(meal1);
 
-        PickADietList meal2 = new PickADietList("1", "500CAL\n BREAKFAST(PEANUT BUTTER)\n LUNCH(RICE)\n DINNER(NOTHING)", R.drawable.meal);
+        PickADietList meal2 = new PickADietList("1", "200CAL\n BREAKFAST(PEANUT BUTTER)\n LUNCH(RICE)\n DINNER(NOTHING)", R.drawable.meal);
         pickADietLists.add(meal2);
 
-        PickADietList meal3 = new PickADietList("2", "1000CAL\n BREAKFAST(CEREAL)\n LUNCH(CHICKEN WINGS)\n DINNER(GRILL)", R.drawable.meal);
+        PickADietList meal3 = new PickADietList("2", "400CAL\n BREAKFAST(CEREAL)\n LUNCH(CHICKEN WINGS)\n DINNER(GRILL)", R.drawable.meal);
         pickADietLists.add(meal3);
 
-        PickADietList meal4 = new PickADietList("3", "700CAL\n BREAKFAST(OMELETTE)\n LUNCH(MEET BALL)\n DINNER(SEA FOOD)\n", R.drawable.meal);
+        PickADietList meal4 = new PickADietList("3", "300CAL\n BREAKFAST(OMELETTE)\n LUNCH(MEET BALL)\n DINNER(SEA FOOD)\n", R.drawable.meal);
         pickADietLists.add(meal4);
 
-        PickADietList meal5 = new PickADietList("4", "2000\n BREAKFAST(SMOOTHIE)\n LUNCH(LAMB MEET)\n DINNER(KFC)", R.drawable.meal);
+        PickADietList meal5 = new PickADietList("4", "700\n BREAKFAST(SMOOTHIE)\n LUNCH(LAMB MEET)\n DINNER(KFC)", R.drawable.meal);
         pickADietLists.add(meal5);
     }
 
@@ -65,21 +65,11 @@ public class PickADiet extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                DashboardList selectedList = (DashboardList) (listView.getItemAtPosition(position));
-
-//                if (position == 0) {
-//                    Intent intent = new Intent(getApplicationContext(), BurnCalories.class);
-//                    intent.putExtra("id", selectedList.getId());
-//                    startActivity(intent);
-//                } else if (position == 1) {
-//                    Intent intent = new Intent(getApplicationContext(), ChooseExercise.class);
-//                    intent.putExtra("id", selectedList.getId());
-//                    startActivity(intent);
-//                }else {
-//                    Intent intent = new Intent(getApplicationContext(), PickADiet.class);
-//                    intent.putExtra("id", selectedList.getId());
-//                    startActivity(intent);
-//                }
+                PickADietList selectedList = (PickADietList) (listView.getItemAtPosition(position));
+                Intent intent = new Intent();
+                intent.putExtra("selectedId", selectedList.getId());
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
     }

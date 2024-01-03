@@ -45,20 +45,22 @@ public class ChooseExercise extends AppCompatActivity {
 
     private void setupData() {
         /*adding the cell data to the list*/
-        ChooseExerciseList  skippingRope = new ChooseExerciseList("0", "1000CAL - SKIPPING ROPE", R.drawable.skippingrope);
-        chooseExerciseLists.add(skippingRope);
+        if (chooseExerciseLists.isEmpty()) {
+            ChooseExerciseList skippingRope = new ChooseExerciseList("0", "1000CAL - SKIPPING ROPE", R.drawable.skippingrope);
+            chooseExerciseLists.add(skippingRope);
 
-        ChooseExerciseList stretching = new ChooseExerciseList("1", "200CAL - STRETCHING", R.drawable.stretching);
-        chooseExerciseLists.add(stretching);
+            ChooseExerciseList stretching = new ChooseExerciseList("1", "200CAL - STRETCHING", R.drawable.stretching);
+            chooseExerciseLists.add(stretching);
 
-        ChooseExerciseList squats = new ChooseExerciseList("2", "700CAL - SQUATS", R.drawable.squats);
-        chooseExerciseLists.add(squats);
+            ChooseExerciseList squats = new ChooseExerciseList("2", "700CAL - SQUATS", R.drawable.squats);
+            chooseExerciseLists.add(squats);
 
-        ChooseExerciseList liftWeight = new ChooseExerciseList("2", "1200CAL - LIFT WEIGHT", R.drawable.liftweight);
-        chooseExerciseLists.add(liftWeight);
+            ChooseExerciseList liftWeight = new ChooseExerciseList("3", "1200CAL - LIFT WEIGHT", R.drawable.liftweight);
+            chooseExerciseLists.add(liftWeight);
 
-        ChooseExerciseList running = new ChooseExerciseList("2", "1500CAL - RUNNING", R.drawable.running);
-        chooseExerciseLists.add(running);
+            ChooseExerciseList running = new ChooseExerciseList("4", "1500CAL - RUNNING", R.drawable.running);
+            chooseExerciseLists.add(running);
+        }
     }
 
     private void setupOnClickListener() {
@@ -66,20 +68,10 @@ public class ChooseExercise extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 DashboardList selectedList = (DashboardList) (listView.getItemAtPosition(position));
-
-//                if (position == 0) {
-//                    Intent intent = new Intent(getApplicationContext(), BurnCalories.class);
-//                    intent.putExtra("id", selectedList.getId());
-//                    startActivity(intent);
-//                } else if (position == 1) {
-//                    Intent intent = new Intent(getApplicationContext(), ChooseExercise.class);
-//                    intent.putExtra("id", selectedList.getId());
-//                    startActivity(intent);
-//                }else {
-//                    Intent intent = new Intent(getApplicationContext(), PickADiet.class);
-//                    intent.putExtra("id", selectedList.getId());
-//                    startActivity(intent);
-//                }
+                Intent intent =  new Intent();
+                intent.putExtra("selectedId", selectedList.getId());
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
     }
