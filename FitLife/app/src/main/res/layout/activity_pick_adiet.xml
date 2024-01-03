@@ -4,18 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/dietbackground"
     tools:context=".dashboard.pickADiet.PickADiet">
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="142dp"
-        android:layout_height="38dp"
-        android:text="PICK A DIET"
-        android:textSize="25dp"
-        android:textStyle="bold"
+    <ListView
+        android:id="@+id/pickADietListView"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

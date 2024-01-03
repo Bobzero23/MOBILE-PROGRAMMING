@@ -45,19 +45,19 @@ public class ChooseExercise extends AppCompatActivity {
 
     private void setupData() {
         /*adding the cell data to the list*/
-        ChooseExerciseList  skippingRope = new ChooseExerciseList("0", "SKIPPING ROPE", R.drawable.skippingrope);
+        ChooseExerciseList  skippingRope = new ChooseExerciseList("0", "1000CAL - SKIPPING ROPE", R.drawable.skippingrope);
         chooseExerciseLists.add(skippingRope);
 
-        ChooseExerciseList stretching = new ChooseExerciseList("1", "STRETCHING", R.drawable.stretching);
+        ChooseExerciseList stretching = new ChooseExerciseList("1", "200CAL - STRETCHING", R.drawable.stretching);
         chooseExerciseLists.add(stretching);
 
-        ChooseExerciseList squats = new ChooseExerciseList("2", "SQUATS", R.drawable.squats);
+        ChooseExerciseList squats = new ChooseExerciseList("2", "700CAL - SQUATS", R.drawable.squats);
         chooseExerciseLists.add(squats);
 
-        ChooseExerciseList liftWeight = new ChooseExerciseList("2", "LIFT WEIGHT", R.drawable.liftweight);
+        ChooseExerciseList liftWeight = new ChooseExerciseList("2", "1200CAL - LIFT WEIGHT", R.drawable.liftweight);
         chooseExerciseLists.add(liftWeight);
 
-        ChooseExerciseList running = new ChooseExerciseList("2", "RUNNING", R.drawable.running);
+        ChooseExerciseList running = new ChooseExerciseList("2", "1500CAL - RUNNING", R.drawable.running);
         chooseExerciseLists.add(running);
     }
 
@@ -80,8 +80,6 @@ public class ChooseExercise extends AppCompatActivity {
 //                    intent.putExtra("id", selectedList.getId());
 //                    startActivity(intent);
 //                }
-
-
             }
         });
     }
