@@ -6,7 +6,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -70,6 +72,7 @@ public class Dashboard extends AppCompatActivity {
                     Intent data = result.getData();
                     if (data != null) {
                         String calories = data.getStringExtra("calories");
+                        Log.d("TARGETED CALORIES", calories + "");
                         targetCalories = Integer.valueOf(calories);
                     }
                 }
@@ -85,14 +88,19 @@ public class Dashboard extends AppCompatActivity {
                         String selectedExerciseId = data.getStringExtra("selectedId");
                         if (selectedExerciseId.equals("0")) {
                             totalCalories = totalCalories + 1000;
+                            Log.d("SELECTED EXERCISE ID", "0");
                         } else if (selectedExerciseId.equals("1")) {
                             totalCalories = totalCalories + 200;
+                            Log.d("SELECTED EXERCISE ID", "1");
                         }else if (selectedExerciseId.equals("2")) {
                             totalCalories = totalCalories + 700;
+                            Log.d("SELECTED EXERCISE ID", "2");
                         }else if (selectedExerciseId.equals("3")) {
                             totalCalories = totalCalories + 1200;
+                            Log.d("SELECTED EXERCISE ID", "3");
                         }else {
                             totalCalories = totalCalories + 1500;
+                            Log.d("SELECTED EXERCISE ID", "5");
                         }
                     }
                 }
@@ -108,17 +116,23 @@ public class Dashboard extends AppCompatActivity {
                         String pickedDietId = data.getStringExtra("selectedId");
                         if (pickedDietId.equals("0")) {
                             totalCalories = totalCalories - 500;
+                            Log.d("SELECTED DIET ID", "0");
                         } else if (pickedDietId.equals("1")) {
                             totalCalories = totalCalories - 200;
+                            Log.d("SELECTED DIET ID", "1");
                         }else if (pickedDietId.equals("2")) {
                             totalCalories = totalCalories - 400;
+                            Log.d("SELECTED DIET ID", "2");
                         }else if (pickedDietId.equals("3")) {
                             totalCalories = totalCalories - 300;
+                            Log.d("SELECTED DIET ID", "3");
                         }else {
                             totalCalories = totalCalories - 700;
+                            Log.d("SELECTED DIET ID", "4");
                         }
 
                         int remainingCalories = targetCalories - totalCalories;
+                        Log.d("REMAINING CALORIES", remainingCalories + "");
                         showResultDialog(remainingCalories);
                     }
                 }
@@ -149,14 +163,27 @@ public class Dashboard extends AppCompatActivity {
     private void showResultDialog(int remainingCalories) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Result");
-
+        MediaPlayer mediaPlayer = new MediaPlayer();
         if (remainingCalories > 0) {
             builder.setMessage("You need to eat some snacks!");
+
         } else if (remainingCalories < 0) {
             builder.setMessage("You can do some walking!");
         } else {
             builder.setMessage("Congratulations! You reached your calorie burning goal.");
+            mediaPlayer = MediaPlayer.create(this, R.raw.congratulations);
         }
+
+        // Play the sound when the dialog is shown
+        mediaPlayer.start();
+
+        // Set a listener to release resources after the sound finishes playing
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                mp.release();
+            }
+        });
 
         builder.setPositiveButton("OK", (dialog, which) -> {
             // Handle the OK button click if needed

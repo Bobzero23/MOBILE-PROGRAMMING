@@ -67,7 +67,7 @@ public class ChooseExercise extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                DashboardList selectedList = (DashboardList) (listView.getItemAtPosition(position));
+                ChooseExerciseList selectedList = (ChooseExerciseList) (listView.getItemAtPosition(position));
                 Intent intent =  new Intent();
                 intent.putExtra("selectedId", selectedList.getId());
                 setResult(RESULT_OK, intent);
