@@ -1,4 +1,4 @@
-package com.example.fitlife;
+package com.example.fitlife.dashboard;
 
 //this class takes whatever it is in the cell and makes it work
 
@@ -10,8 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
+import com.example.fitlife.R;
 
 import java.util.List;
 

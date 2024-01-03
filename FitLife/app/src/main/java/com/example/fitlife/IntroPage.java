@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.fitlife.dashboard.Dashboard;
+
 public class IntroPage extends AppCompatActivity {
 
     @Override

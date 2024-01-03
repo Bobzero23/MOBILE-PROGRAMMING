@@ -1,4 +1,4 @@
-package com.example.fitlife;
+package com.example.fitlife.dashboard;
 
 public class DashboardList {
     private String id;

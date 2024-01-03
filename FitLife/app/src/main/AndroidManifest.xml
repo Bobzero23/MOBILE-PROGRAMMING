@@ -13,6 +13,18 @@
         android:theme="@style/Theme.FitLife"
         tools:targetApi="31">
         <activity
+            android:name=".dashboard.pickADiet.PickADiet"
+            android:exported="false" />
+        <activity
+            android:name=".dashboard.chooseExercise.ChooseExercise"
+            android:exported="false" />
+        <activity
+            android:name=".dashboard.burnCalories.BurnCalories"
+            android:exported="false" />
+        <activity
+            android:name=".dashboard.DashboardListDetail"
+            android:exported="false" />
+        <activity
             android:name=".List_data"
             android:exported="false" />
         <activity
@@ -22,7 +34,7 @@
             android:name=".CusotmListsView"
             android:exported="false" />
         <activity
-            android:name=".Dashboard"
+            android:name=".dashboard.Dashboard"
             android:exported="false" />
         <activity
             android:name=".IntroPage"

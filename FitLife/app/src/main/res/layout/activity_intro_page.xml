@@ -5,29 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".IntroPage"
-    android:background="@drawable/introbackground">
+    android:background="@drawable/background2">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="389dp"
-        android:layout_height="195dp"
+        android:layout_width="379dp"
+        android:layout_height="176dp"
         android:text="
-The ideal daily calorie intake and exercise regimen vary based on factors such as age, gender, weight, activity level, and overall health goals. However, general guidelines suggest that adults should consume around 2,000 to 2,500 calories per day to maintain their weight, with adjustments for weight loss or gain"
-        android:textColor="#CAB0B0"
+The ideal daily calorie intake and exercise regimen vary based on factors such as age, gender, weight, activity level, and overall health goals. However, general guidelines suggest that adults should consume around 2,000 to 2,500 calories per day to maintain their weight."
+        android:textColor="#ca6702"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.029" />
+        app:layout_constraintVertical_bias="0.297" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="398dp"
         android:layout_height="254dp"
-        android:text="In terms of exercise, adults should aim for at least 150 minutes of moderate-intensity aerobic activity or 75 minutes of vigorous-intensity aerobic activity per week, along with muscle-strengthening activities on two or more days a week. These recommendations promote cardiovascular health, muscle strength, and overall well-being."
-        android:textColor="#E4E491"
+        android:padding="5dp"
+        android:text="In terms of exercise, adults should aim for at least 150 minutes of moderate-intensity aerobic activity or 75 minutes of vigorous-intensity aerobic activity per week, along with muscle-strengthening activities on two or more days a week. "
+        android:textColor="#ee9b00"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,7 +37,7 @@ The ideal daily calorie intake and exercise regimen vary based on factors such a
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.541" />
+        app:layout_constraintVertical_bias="0.358" />
 
     <Button
         android:id="@+id/button2"

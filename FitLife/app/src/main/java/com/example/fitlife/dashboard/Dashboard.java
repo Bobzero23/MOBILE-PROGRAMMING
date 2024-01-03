@@ -1,9 +1,17 @@
-package com.example.fitlife;
+package com.example.fitlife.dashboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.example.fitlife.R;
+import com.example.fitlife.dashboard.burnCalories.BurnCalories;
+import com.example.fitlife.dashboard.chooseExercise.ChooseExercise;
+import com.example.fitlife.dashboard.pickADiet.PickADiet;
 
 import java.util.ArrayList;
 
@@ -37,6 +45,7 @@ public class Dashboard extends AppCompatActivity {
     }
 
     private void setupData() {
+        /*adding the cell data to the list*/
         DashboardList burnCalories = new DashboardList("0", "BURN CALORIES", R.drawable.calories);
         dashboardLists.add(burnCalories);
 
@@ -48,5 +57,27 @@ public class Dashboard extends AppCompatActivity {
     }
 
     private void setupOnClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                DashboardList selectedList = (DashboardList) (listView.getItemAtPosition(position));
+
+                if (position == 0) {
+                    Intent intent = new Intent(getApplicationContext(), BurnCalories.class);
+                    intent.putExtra("id", selectedList.getId());
+                    startActivity(intent);
+                } else if (position == 1) {
+                    Intent intent = new Intent(getApplicationContext(), ChooseExercise.class);
+                    intent.putExtra("id", selectedList.getId());
+                    startActivity(intent);
+                }else {
+                    Intent intent = new Intent(getApplicationContext(), PickADiet.class);
+                    intent.putExtra("id", selectedList.getId());
+                    startActivity(intent);
+                }
+
+
+            }
+        });
     }
 }
